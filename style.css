@@ -1,0 +1,1136 @@
+/* --------------------- 폰트 불러오기 --------------------- */
+/* 프리텐다드 */
+@font-face {
+    font-family: "Pretendard";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Pretendard";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Pretendard";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* Jost */
+@font-face {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+/* --------------------- 폰트 불러오기 끝 --------------------- */
+
+/* --------------------- 노말라이즈 시작 --------------------- */
+body,
+li,
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+/* --------------------- 노말라이즈 끝 --------------------- */
+
+/* --------------------- 폰트 적용 --------------------- */
+html,
+html > body,
+html > body button,
+html > body input,
+html > body select,
+html > body textarea {
+    font-family: "Pretendard";
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+/* 라이브러리 */
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.moreview {
+    margin-top: 35px;
+    position: relative;
+    font-weight: 600;
+    font-family: "Jost", sans-serif;
+}
+
+.moreview::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  background: url(images/viewmore-2.svg) no-repeat center;
+  background-size: contain;
+}
+
+h2 {
+    font-size: 60px;
+    font-weight: 700;
+    font-family: "Jost", sans-serif;
+    line-height: 1.1;   
+    margin: 0;
+}
+
+/* --------------------- 헤더 시작 --------------------- */
+header {
+    font-family: "Jost";
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 76px;
+    width: 100%;
+    background-color: #fff;
+}
+
+/* 탑바 시작 */
+.top-bar {
+    width: 100%;
+    height: 76px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+}
+
+.top-bar-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 26px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+}
+
+/* 메뉴1 시작 */
+.top-bar__menu-box-1 {
+    height: 100%;
+}
+
+.top-bar__menu-box-1 > ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.top-bar__menu-box-1 > ul > li {
+    height: 100%;
+    padding: 0 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.top-bar__menu-box-1 > ul > li > a {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+/* 2차메뉴 */
+.con_min-width {
+    width: 100%;
+    height: 370px;
+    position: absolute;
+    left: 37px;
+    top: 100%;
+    display: none;
+    z-index: 9999;
+    padding-top: 37px;
+}
+
+.top-bar__menu-box-1 > ul > li:hover > .con_min-width {
+    display: block;
+}
+
+.sub-menu {
+    width: 1080px;
+}
+
+.top-bar__menu-box-1 > ul > li:hover > .sub-menu {
+    display: block;
+}
+
+.sub-menu > ul > li > a {
+    color: #999;
+    font-family: "Pretendard";
+    font-size: 16px;
+    font-weight: 500;
+    padding: 13px 0;
+    display: block;
+}
+
+.sub-menu > ul > li:hover > a {
+    color: #333;
+    font-weight: 500;
+}
+
+header > .top-bar_bg {
+    display: none;
+    width: 100%;
+    height: 420px;
+    position: fixed;
+    left: 0;
+    top: 76px;
+    background-color: #fff;
+    z-index: 999;
+    border-top: 1px solid #dfdfdf;
+}
+
+header.active > .top-bar_bg {
+    display: block;
+    
+}
+
+/* 2차메뉴 끝 */
+/* 메뉴1끝 */
+
+/* 메뉴2 시작 */
+.top-bar .top-bar__menu-box-2 {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+/* 메뉴2 끝 */
+/* --------------------- 헤더 끝 --------------------- */
+
+/* --------------------- 메인 시작 --------------------- */
+
+main > .contents {
+    min-height: 400px;
+    width: 100%;
+    padding: 0 0 80px;
+    overflow-x: clip;
+}
+
+main .sec-pd {
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 1920px;
+    margin: 0 auto;
+    margin-top: 180px;
+}
+
+
+/* sec01 시작 */
+.sec01 {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.sec01 > .mySwiper-1 {
+    overflow: hidden;
+    height: 880px;
+    cursor: pointer;
+}
+
+.mySwiper-1 .swiper-slide-1 > img {
+    display: block;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+}
+
+/* 수정 */
+.mySwiper-1 > .view_more {
+    position: absolute;
+    font-family: "Jost";
+    font-weight: 700;
+    background: url(images/view-more.png) no-repeat 0 0 / contain;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    width: 304px;
+    height: 144px;
+    font-size: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.mySwiper-1 > .view_more::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  background: url(../images/sec01-aside.svg) no-repeat center;
+  background-size: contain;
+}
+
+/* swiper커스텀 시작 */
+.sec01 > .slider-control {
+  position:absolute;
+  left: 0;
+  bottom:50px;
+  z-index:10;
+  width: 1615px;
+  height: 15px;
+  padding-left: 40px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color: white !important;
+}
+
+.sec01 > .slider-control .swiper-scrollbar-drag {
+    position: static;
+    background-color: white !important;
+}
+
+.sec01 > .slider-control > .swiper-scrollbar-horizontal {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    width: 1450px;
+    height: 3px;
+}
+
+.sec01 > .slider-control > .swiper-button-prev,
+.sec01 > .slider-control > .swiper-button-next {
+    position: static;
+    height: 16px;
+    width: 16px;
+    color: white !important;
+}
+
+.sec01 > .slider-control > .swiper-pagination {
+    position: static;
+    margin-left: 24px;
+    width: 40px;
+}
+
+.sec01 > .slider-control > .swiper-pagination > .swiper-pagination-total {
+    opacity: 0.5;
+}
+
+/* sec01 끝 */
+
+
+/* sec02 시작 */
+.sec02 {
+    max-width: 1200px;
+    margin: 48px auto 24px;
+    padding: 0 16px;
+}
+
+.cat-wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 44px;
+}
+
+.cat-wrap > .cat {
+    width: 130px;
+    text-align: center;
+}
+
+.cat-wrap a {
+    display: block;
+    width: 130px;
+    height: 173px;
+    position: relative;
+}
+
+.cat-wrap > .cat .thumb {
+    width: 110px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 수정 */
+.cat-wrap > .cat .thumb::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid white;
+
+}
+
+.cat-wrap a img {
+    width: 110px;
+    height: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    padding-bottom: 18px;
+}
+
+.cat-wrap a .label {
+    font-size: 16px;
+    font-weight: 300;
+    white-space: nowrap;
+}
+
+.cat-wrap a .sub1 {
+    display: block;
+    margin-top: 1px;
+    font-size: 14px;
+    font-weight: 700 !important;
+    color: #FD4F46;
+    white-space: nowrap;
+}
+
+.cat-wrap a .sub2 {
+    display: block;
+    margin-top: 1px;
+    font-size: 14px;
+    font-weight: 700 !important;
+    color: #42ABFF;
+    white-space: nowrap;
+}
+/* sec02 끝 */
+
+
+/* sec03 시작 */
+.sec03 {
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+.sec03 > .title-wrap {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sec03 > .best_group {
+    display: flex;
+}
+
+.best_group > .best_tab {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.best_group > .best_tab li {
+    margin-bottom: 10px;
+}
+
+.best_group > .best_tab li > a {
+    opacity: 0.2;
+    font-family: "Jost", sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.best_group > .best_con {
+    width: calc(100% -300px)
+}
+
+.best_group > .best_con > ul {
+    position: relative;
+}
+
+.best_group > .best_con > ul .soopsori_banner {
+    display: flex;
+}
+
+.best_group > .best_con > ul .soopsori_banner > .soopsori_banner_con {
+    width: calc(100% - 110px);
+}
+
+.best_group > .best_con > ul .soopsori_banner > .soopsori_banner_tab {
+    width: 110%;
+}
+
+.best_group > .best_con > ul .soopsori_banner > .soopsori_banner_tab li {
+    margin-bottom: 22px;
+}
+
+.mySwiper-2 {
+    width: 1425px;
+}
+
+.mySwiper-2 .swiper-slide {
+    position: relative;
+}
+    
+.mySwiper-2 .swiper-slide > a {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    right: 0;
+    text-align: left;
+    z-index: 5;
+    width: 240px;
+}
+
+.mySwiper-2 .swiper-slide > a > p:first-child {
+    font-family: "Jost", sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.56px;
+    text-wrap: nowrap;
+}
+
+.mySwiper-2 .swiper-slide > a > p:nth-child(2) {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.mySwiper-2 .swiper-button-next,
+.mySwiper-2 .swiper-button-prev {
+    width: 16px;
+    height: 16px;
+    color: #111;
+}
+
+.mySwiper-2 .swiper-pagination-bullet {
+    background-color: #111;
+}
+
+
+/* sec03 끝 */
+
+
+/* sec04 시작 */
+.sec04 > .goods-list-con {
+    position: relative;
+    width: 100%;
+}
+
+.goods-list-con .goods_tab_tit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(calc(-100% - 30px));
+    }
+
+.goods-list-con .goods_tab_tit > ul {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.goods-list-con .goods_tab_tit li {
+    display: inline-block;
+    font-size: 18px;
+    text-align: center;
+}
+
+.goods-list-con .goods_tab_tit li > a {
+    background-color: white;
+    color: #092729;
+    font-weight: 500;
+    display: block;
+    padding: 16px 24px;
+    border: 1px solid #092729;
+    border-radius: 2em;
+}
+
+.goods-list-con .goods_tab_con {
+    margin-top: 30px;
+}
+
+.goods-list-con .goods_tab_con ul {
+    display: flex;
+    align-items: flex-start;
+\\
+}
+
+.goods-list-con .goods_tab_con ul > li {
+    width: 25%;
+    padding: 0 10px;
+}
+
+.goods-list-con .goods_tab_con ul .item_con {
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.goods-list-con .goods_tab_con ul .item_con > .item_photo_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 30px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.goods-list-con .goods_tab_con ul .item_con > .item_photo_box > a {
+    position: relative;
+    display: block;
+    padding-bottom: 116.8%;
+}
+
+.goods-list-con .goods_tab_con ul .item_con > .item_photo_box > a > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    transition: opacity .3s;
+}
+
+.goods-list-con .goods_tab_con ul .item_con a > img:last-child {
+    opacity: 0;
+}
+
+.goods-list-con .goods_tab_con ul .item_con a:hover > img:first-child {
+    opacity: 0;
+}
+
+.goods-list-con .goods_tab_con ul .item_con a:hover > img:last-child {
+    opacity: 1;
+}
+
+.goods-list-con .goods_tab_con ul .item_con > .item_info_con {
+    position: absolute;
+    bottom: 6%;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.goods-list-con .goods_tab_con ul .item_con > .item_info_con > .item_tit_box {
+    padding: 0;
+    
+}
+
+.goods-list-con .goods_tab_con ul .item_con > .item_info_con > .item_tit_box strong {
+    align-items: center;
+}
+
+.goods-list-con .goods_tab_con ul .item_con > .item_info_con > .item_tit_box strong.active {
+    color: white;
+}
+/* sec04 끝 */
+
+
+/* sec05 시작 */
+.sec05 {
+    position: relative;
+}
+
+.sec05 > .title-wrap {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.mySwiper-3 {
+    width: 100%;
+    height: 100%;
+}
+
+.mySwiper-3 .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mySwiper-3 .swiper-slide > div {
+    flex: 1;
+    position: relative;
+}
+
+.mySwiper-3 .swiper-slide > .detail-area {
+    padding-left: 95px;
+}
+
+.mySwiper-3 .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mySwiper-3 .swiper-slide .swiper-slide > a {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mySwiper-3 .swiper-slide .swiper-slide > a > .img {
+    width: 530px;
+    max-width: 100%;
+    position: relative;
+}
+
+.mySwiper-3 .swiper-slide .swiper-slide > a > dl {
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.mySwiper-3 .swiper-slide .swiper-slide > a dt {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.mySwiper-3 .swiper-slide .swiper-slide > a dd {
+    margin-inline-start: 0;
+}
+
+.mySwiper-3 .swiper-slide .swiper-slide > a > .btn {
+    font-size: 16px;
+    padding: 11px 20px;
+    color: white;
+    background-color: #092729;
+}
+
+.mySwiper-3 .swiper-slide .swiper-slide > a > .btn-dark {
+    font-weight: 600;
+    border-radius: 2em;
+    border: 2px solid gray;
+    text-align: center;
+}
+
+
+/* 스와이퍼커스텀 */
+.sec05 > .slider-control {
+    display: flex;
+    position: absolute;
+    overflow: visible;
+    width: 200px;
+    height: 16px;
+    margin-top: 50px;
+    left: 50%;
+}
+.sec05 > .slider-control > .swiper-pagination {
+
+}
+
+.sec05 > .slider-control .swiper-pagination-bullet-active {
+    background-color: #092729;
+}
+
+.sec05 > .slider-control > .swiper-button-prev,
+.sec05 > .slider-control > .swiper-button-next {
+    z-index: 50;
+    height: 16px;
+    width: 16px;
+    color: #092729;
+}
+/* sec05 끝 */
+
+
+/* sec06 시작 */
+.mySwiper-4 {
+    width: 100%;
+    height: 100%;
+}
+
+.mySwiper-4 .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mySwiper-4 .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mySwiper-4 > .swiper-pagination,
+.mySwiper-4 > .swiper-button-prev,
+.mySwiper-4 > .swiper-button-next {
+    display: none;
+}
+/* sec06 끝 */
+
+
+/* sec07 시작 */
+.sec07 {
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 1920px;
+    margin: 0 auto;
+    margin-top: 180px;
+}
+
+.sec07 > .title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sec07 > .magazine-list > ul {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.sec07 > .magazine-list > ul > li > a {
+    display: block;
+}
+
+.sec07 > .magazine-list > ul > li > a > .img {
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.sec07 > .magazine-list > ul > li > a > .img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sec07 > .magazine-list > ul > li > a > .subject {
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 18px;
+}
+/* sec07 끝 */
+
+
+/* sec08 시작 */
+.sec08 {
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 0 auto;
+    margin-top: 180px;
+    background: url("images/sec08-bg.jpg");
+    height: 960px;
+    position: relative;
+}
+
+.sec08 > .visit-frame {
+    display: flex;
+    align-items: center;
+    max-width: 1344px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.sec08 > .visit-frame > div {
+    position: relative;
+    color: white;
+}
+
+.sec08 .visit-con {
+    align-items: center;
+    flex: 1;
+}
+
+.sec08 .visit-con > .title-wrap {
+    margin-bottom: 30px;
+}
+
+
+.sec08 .visit-con > ul {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+.sec08 .visit-con .visit-txt-1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.sec08 .visit-con .visit-txt-2 {
+    opacity: .8;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.sec08 .visit-slide {
+    width: 480px;
+    position: relative;
+}
+
+.mySwiper-5 {
+    width: 100%;
+    height: 100%;
+}
+
+.mySwiper-5 .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mySwiper-5 .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 스와이퍼 커스텀 */
+.sec08 > .slider-control {
+    position: absolute;
+    height: 100%;
+}
+
+.sec08 .swiper-pagination {
+    display: none;
+}
+
+.sec08 .swiper-button-next,
+.sec08 .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    opacity: 0.5;
+    position: absolute;
+    top: 50%;
+    transform: trnaslateY(-50%);
+}
+
+.sec08 .swiper-button-prev {
+    left: -40px;
+    right: auto;
+}
+
+.sec08 .swiper-button-prev:hover {
+    opacity: 1;
+}
+
+.sec08 .swiper-button-next {
+    right: -40px;
+    left: auto;
+}
+
+.sec08 .swiper-button-next:hover {
+    opacity: 1;
+}
+/* sec08 끝 */
+
+
+/* sec09 시작 */
+.sec09 > .insta-frame {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1600px;
+}
+
+.sec09 .insta-con {
+    width: 460px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sec09 .insta-con > .title-wrap {
+    margin-bottom: auto;
+}
+
+.sec09 .insta-con > .title-wrap + p {
+    font-size: 1.1rem;
+}
+
+.sec09 .insta-slide {
+  width: 100%;
+  height: 640px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.marquee-frame {
+  width: 1041px;
+  height: 640px;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: 100%;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track img {
+  height: 100%;
+  width: auto;
+  flex-shrink: 0;
+  margin-right: 20px;
+  display: block;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+/* sec09 끝 */
+
+
+/* 스크롤 배너 시작 */
+.scroll-right {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10000;
+}
+
+.scroll-right > div {
+    margin-top: 5px;
+}
+/* 스크롤 배너 끝 */
+
+
+/* footer 시작 */
+footer {
+    padding: 94px 40px;
+    margin: 0 auto;
+    background-color: #092729;
+}
+
+footer > .footer-wrap {
+    color: white;
+    max-width: 1590px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+footer .foot_top_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .foot_cont_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .foot_cont_wrap .privacy_list {
+    margin-bottom: 10px;
+}
+
+footer .foot_cont_wrap .privacy_list > ul {
+    display: flex;
+    font-weight: 500;
+    gap: 12px;
+}
+
+footer .foot_cont_wrap .foot_info {
+    opacity: 0.7;
+    margin-bottom: 26px;
+
+}
+
+footer .foot_cont_wrap .foot_info > .foot_info_list {
+    display: flex;
+    overflow: hidden;
+    margin-right: 8px;
+    gap: 8px;
+}
+
+footer .foot_cont_wrap .foot_info > .foot_info_list > ul {
+    display: flex;
+    margin-right: 8px;
+    gap: 8px;
+    font-size: 14px;
+}
+
+footer .foot_cont_wrap .foot-cs {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+footer .foot_cont_wrap .foot-cs:first-child {
+    font-size: 20px;
+}
+
+footer .foot_cont_wrap .foot-cs > ul span {
+    font-size: 24px;
+    font-weight: 500;
+    font-family: "Jost", sans-serif;
+}
+
+footer .foot_cont_wrap .foot-cs > ul > .subtext {
+    opacity: 0.7;
+}
+
+.foot_cont_wrap .copyright {
+    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 300;
+    opacity: 0.7;
+}
+
+.foot_cont_wrap > .comunity_list {
+    text-align: right;
+}
+
+
+.foot_cont_wrap > .comunity_list > ul a{
+    font-size: 18px;
+}
+/* footer 끝 */
