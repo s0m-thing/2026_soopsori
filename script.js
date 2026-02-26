@@ -12,9 +12,9 @@ $('.top-bar .top-bar__menu-box-1 > ul > li.block').hover(function(){
 $('.goods-list-con .goods_tab_con ul .item_con a').hover(function(){
   let $this = $(this);
 
-  $this.sibling().addClass('active');
+  $this.parent().sibling().addClass('active');
 }, function() {
-  $this.sibling().removeClass('active');
+  $this.parent().sibling().removeClass('active');
 });
 // swiper
 // sec01 mySwiper-1
@@ -23,7 +23,7 @@ var swiper = new Swiper(".mySwiper-1", {
     centeredSlides: true,
     autoplay: {
         delay: 2500,
-        disableOnInteraction: false
+        disableOnInteraction: false;
     },
     scrollbar: {
         el: ".sec01 > .slider-control > .swiper-scrollbar",

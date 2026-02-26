@@ -314,7 +314,7 @@ main .sec-pd {
   width: 32px;
   height: 32px;
   margin-left: 10px;
-  background: url(../images/sec01-aside.svg) no-repeat center;
+  background: url(images/viewmore-2.svg) no-repeat center;
   background-size: contain;
 }
 
@@ -466,11 +466,17 @@ main .sec-pd {
     margin-bottom: 10px;
 }
 
-.best_group > .best_tab li > a {
+.best_group > .best_tab > ul > li > a {
     opacity: 0.2;
     font-family: "Jost", sans-serif;
     font-size: 40px;
     font-weight: 500;
+    border: 1px solid rec;
+}
+
+.best_group > .best_tab li > a:hover {
+    color: rgb(9, 39, 41);
+    opacity: 1;
 }
 
 .best_group > .best_con {
@@ -496,6 +502,8 @@ main .sec-pd {
 .best_group > .best_con > ul .soopsori_banner > .soopsori_banner_tab li {
     margin-bottom: 22px;
 }
+
+
 
 .mySwiper-2 {
     width: 1425px;
@@ -579,6 +587,11 @@ main .sec-pd {
     border-radius: 2em;
 }
 
+.goods-list-con .goods_tab_tit li:hover > a {
+    background-color: rgba(9, 39, 41, 0.1);
+}
+
+
 .goods-list-con .goods_tab_con {
     margin-top: 30px;
 }
@@ -660,6 +673,7 @@ main .sec-pd {
     align-items: center;
 }
 
+/* 수정 */
 .goods-list-con .goods_tab_con ul .item_con > .item_info_con > .item_tit_box strong.active {
     color: white;
 }
