@@ -322,10 +322,10 @@ main .sec-pd {
 .sec01 > .slider-control {
   position:absolute;
   left: 0;
-  bottom:50px;
+  bottom: 30px;
   z-index:10;
   width: 1615px;
-  height: 15px;
+  height: 30px;
   padding-left: 40px;
   display:flex;
   align-items:center;
@@ -347,16 +347,26 @@ main .sec-pd {
 
 .sec01 > .slider-control > .swiper-button-prev,
 .sec01 > .slider-control > .swiper-button-next {
-    position: static;
+    right: 0;
     height: 16px;
     width: 16px;
     color: white !important;
+    top: 120%;
+    left: auto;
+    right: 80px;
+}
+
+.sec01 > .slider-control > .swiper-button-next {
+    right: 40px;
 }
 
 .sec01 > .slider-control > .swiper-pagination {
-    position: static;
     margin-left: 24px;
     width: 40px;
+    top: 40%;
+    left: auto;
+    right: 120px;
+    font-weight: bold;
 }
 
 .sec01 > .slider-control > .swiper-pagination > .swiper-pagination-total {
@@ -698,7 +708,6 @@ main .sec-pd {
     align-items: center;
 }
 
-/* 수정 */
 .goods-list-con .goods_tab_con ul .item_con {
   position: relative;
   border-radius: 40px;
@@ -803,23 +812,31 @@ main .sec-pd {
 /* 스와이퍼커스텀 */
 .sec05 > .slider-control {
     display: flex;
-    position: absolute;
+    position: relative;
     overflow: visible;
-    width: 200px;
+    width: 100%;
     height: 16px;
-    margin-top: 50px;
-    left: 50%;
+    bottom: -50px;
 }
 .sec05 > .slider-control > .swiper-pagination {
-
+    display: 
 }
 
 .sec05 > .slider-control .swiper-pagination-bullet-active {
     background-color: #092729;
 }
 
+.sec05 > .slider-control > .swiper-button-prev {
+    left: 46%;
+}
+
+.sec05 > .slider-control > .swiper-button-next {
+    right: 46%;
+}
+
 .sec05 > .slider-control > .swiper-button-prev,
 .sec05 > .slider-control > .swiper-button-next {
+    top: 10px;
     z-index: 50;
     height: 16px;
     width: 16px;
