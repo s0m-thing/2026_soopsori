@@ -7,16 +7,24 @@ $('.top-bar .top-bar__menu-box-1 > ul > li.block').hover(function(){
   $('header').removeClass('active');
 });
 
+// sec04 탭메뉴
+$(document).ready(function(){
+	
+  //버튼을 눌렀을때 동작을 하시오!
+	$('goods-list-con .goots_tab_tit .tab_link').click(function(){
+		var tab_id = $(this).attr('data-tab');
 
+    //어떠한동작? ul.tabs에 li와 .tab-content를 초기화 하시오!!
+		$('goods-list-con .goods_tab_con > .goods_tab_box').removeClass('current');
+		$('.goods_tab_box').removeClass('current');
+    
+    //ul.tabs의 li의 css를 활성화 하고
+    //data-tab 값을 확인해서 탭의 내용을 띄워줌
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+	})
 
-// $('.goods-list-con .goods_tab_con ul .item_con a').hover(function(){
-//   let $this = $(this);
-
-//   $this.parent().sibling().addClass('active');
-// }, function() {
-//   $this.parent().sibling().removeClass('active');
-// });
-
+}) 
 
 // swiper
 // sec01 mySwiper-1
