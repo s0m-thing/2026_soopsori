@@ -351,7 +351,7 @@ main .sec-pd {
     height: 16px;
     width: 16px;
     color: white !important;
-    top: 120%;
+    top: 130%;
     left: auto;
     right: 80px;
 }
@@ -363,7 +363,7 @@ main .sec-pd {
 .sec01 > .slider-control > .swiper-pagination {
     margin-left: 24px;
     width: 40px;
-    top: 40%;
+    top: 45%;
     left: auto;
     right: 120px;
     font-weight: bold;
@@ -498,6 +498,7 @@ main .sec-pd {
     margin-bottom: 10px;
 }
 
+
 .best_group > .best_tab > ul > li > a {
     opacity: 0.2;
     font-family: "Jost", sans-serif;
@@ -505,6 +506,13 @@ main .sec-pd {
     font-weight: 500;
     border: 1px solid rec;
 }
+
+.best_group > .best_tab li.on > a {
+    color: rgb(9, 39, 41);
+    opacity: 1;
+    text-decoration: underline;
+}
+
 
 .best_group > .best_tab li > a:hover {
     color: rgb(9, 39, 41);
@@ -536,7 +544,6 @@ main .sec-pd {
 }
 
 
-
 .mySwiper-2 {
     width: 1425px;
 }
@@ -556,6 +563,14 @@ main .sec-pd {
     text-align: left;
     z-index: 5;
     width: 240px;
+}
+
+
+
+.mySwiper-2 .swiper-slide > img {
+    width: 100% !important;
+    max-width: 800px;
+  transform: translateX(-120px);
 }
 
 .mySwiper-2 .swiper-slide > a > p:first-child {
@@ -582,6 +597,18 @@ main .sec-pd {
 .mySwiper-2 .swiper-pagination-bullet {
     background-color: #111;
 }
+/* swiper 탭메뉴 */
+.best_con > ul > li { 
+    display:none; 
+}
+
+.best_con > ul > li.current {
+    display:block; 
+}
+
+/* 오른쪽 썸네일 선택 표시 */
+.soopsori_banner_tab .thumb { opacity:.35; cursor:pointer; }
+.soopsori_banner_tab .thumb.current { opacity:1; }
 
 
 /* sec03 끝 */
@@ -622,21 +649,24 @@ main .sec-pd {
     border-radius: 2em;
 }
 
-
+/* 탭메뉴 시작 */
 .goods-list-con .goods_tab_tit li.current > a {
     background-color: #092729;
     color: #fff;
     font-weight: 700;
-    border-color: none;
+    border: none;
 }
 
-/* .goods-list-con .goods_tab_tit li:hover > a {
+.goods-list-con .goods_tab_tit li:not(.current):hover > a {
     background-color: rgba(9, 39, 41, 0.1);
-} */
+}
 
 
 .goods-list-con .goods_tab_con {
     margin-top: 30px;
+}
+
+.goods-list-con .goods_tab_con > .goods_tab_box {
     display: none;
 }
 

@@ -8,23 +8,21 @@ $('.top-bar .top-bar__menu-box-1 > ul > li.block').hover(function(){
 });
 
 // sec04 탭메뉴
-$(document).ready(function(){
-	
-  //버튼을 눌렀을때 동작을 하시오!
-	$('goods-list-con .goots_tab_tit .tab_link').click(function(){
-		var tab_id = $(this).attr('data-tab');
+$(document).ready(function () {
 
-    //어떠한동작? ul.tabs에 li와 .tab-content를 초기화 하시오!!
-		$('goods-list-con .goods_tab_con > .goods_tab_box').removeClass('current');
-		$('.goods_tab_box').removeClass('current');
-    
-    //ul.tabs의 li의 css를 활성화 하고
-    //data-tab 값을 확인해서 탭의 내용을 띄워줌
-		$(this).addClass('current');
-		$("#"+tab_id).addClass('current');
-	})
+  $('.goods-list-con .goods_tab_tit .tab_link').on('click', function (e) {
+    e.preventDefault();
 
-}) 
+    var tab_id = $(this).data('tab');
+
+    $('.goods-list-con .goods_tab_tit .tab_link').removeClass('current');
+    $(this).addClass('current');
+
+    $('.goods-list-con .goods_tab_con .goods_tab_box').removeClass('current');
+    $('#' + tab_id).addClass('current');
+  });
+
+});
 
 // swiper
 // sec01 mySwiper-1
@@ -84,6 +82,66 @@ var swiper = new Swiper(".mySwiper-3", {
 
 
 // sec06 mySwiper-4
+$(function () {
+
+  // 1) 카테고리별 swiper 생성해서 저장
+  const swipers = {
+    "best-1": new Swiper(".mySwiper-2-1", {
+      loop: false,
+      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+      pagination: { el: ".swiper-pagination", clickable: true },
+    }),
+    "best-2": new Swiper(".mySwiper-2-2", {
+      loop: false,
+      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+      pagination: { el: ".swiper-pagination", clickable: true },
+    }),
+    // best-3~5도 만들면 여기에 추가
+  };
+
+  // 현재 활성 탭
+  let activeTab = "best-1";
+
+  // 2) 왼쪽 탭 클릭 → best_con의 해당 li 보이기
+  $(".best_tab li").on("click", function (e) {
+    e.preventDefault();
+
+    const tabId = $(this).data("tab");
+    activeTab = tabId;
+
+    // 탭 UI
+    $(".best_tab li").removeClass("on");
+    $(this).addClass("on");
+
+    // 콘텐츠 show/hide
+    $(".best_con > ul > li").removeClass("current");
+    $("#" + tabId).addClass("current");
+
+    // 숨김→표시 전환 후 swiper 레이아웃 업데이트(중요)
+    if (swipers[tabId]) {
+      swipers[tabId].update();
+      swipers[tabId].pagination.render();
+      swipers[tabId].pagination.update();
+    }
+  });
+
+  // 3) 오른쪽 썸네일 클릭 → 해당 카테고리 swiper의 해당 슬라이드로 이동
+  $(".best_con").on("click", ".soopsori_banner_tab .thumb", function () {
+    const idx = Number($(this).data("index"));
+
+    // 썸네일 UI
+    const $tabBox = $(this).closest(".soopsori_banner_tab");
+    $tabBox.find(".thumb").removeClass("current");
+    $(this).addClass("current");
+
+    // 현재 활성 카테고리 swiper 이동
+    if (swipers[activeTab]) {
+      swipers[activeTab].slideTo(idx);
+    }
+  });
+
+});
+
 var swiper = new Swiper(".mySwiper-4", {
       spaceBetween: 30,
       centeredSlides: true,
