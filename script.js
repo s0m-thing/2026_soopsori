@@ -9,19 +9,81 @@ $('.top-bar .top-bar__menu-box-1 > ul > li.block').hover(function(){
 
 // sec04 탭메뉴
 $(document).ready(function () {
+  let activeBestSwiper = null;
+  const bestSwipers = [];
 
-  $('.goods-list-con .goods_tab_tit .tab_link').on('click', function (e) {
-    e.preventDefault();
+  // sec03 안의 swiper 각각 생성
+  $('.sec03 .mySwiper-2').each(function (index) {
+    const swiperEl = this;
 
-    var tab_id = $(this).data('tab');
+    const swiper = new Swiper(swiperEl, {
+      slidesPerView: 1,
+      speed: 600,
+      allowTouchMove: true,
+      on: {
+        init: function () {
+          const $wrap = $(swiperEl).closest('.soopsori_banner');
+          $wrap.find('.thumb').removeClass('current');
+          $wrap.find('.thumb').eq(this.activeIndex).addClass('current');
+        },
+        slideChange: function () {
+          const $wrap = $(swiperEl).closest('.soopsori_banner');
+          $wrap.find('.thumb').removeClass('current');
+          $wrap.find('.thumb').eq(this.activeIndex).addClass('current');
+        }
+      }
+    });
 
-    $('.goods-list-con .goods_tab_tit .tab_link').removeClass('current');
-    $(this).addClass('current');
+    $(swiperEl).data('swiperInstance', swiper);
+    bestSwipers.push(swiper);
 
-    $('.goods-list-con .goods_tab_con .goods_tab_box').removeClass('current');
-    $('#' + tab_id).addClass('current');
+    // 처음 보이는 current 탭의 swiper를 active로 저장
+    if ($(swiperEl).closest('.best_con > ul > li').hasClass('current')) {
+      activeBestSwiper = swiper;
+    }
   });
 
+  // 왼쪽 BEST 탭 클릭
+  $('.sec03 .best_tab li').on('click', function (e) {
+    e.preventDefault();
+
+    const tabId = $(this).data('tab');
+
+    $('.sec03 .best_tab li').removeClass('on');
+    $(this).addClass('on');
+
+    $('.sec03 .best_con > ul > li').removeClass('current');
+    $('#' + tabId).addClass('current');
+
+    // 현재 열린 탭 안의 swiper를 active로 변경
+    activeBestSwiper = $('#' + tabId).find('.mySwiper-2').data('swiperInstance');
+    if (activeBestSwiper) {
+      activeBestSwiper.update();
+    }
+  });
+
+  // 오른쪽 썸네일 클릭
+  $('.sec03 .soopsori_banner_tab .thumb').on('click', function () {
+    const index = $(this).data('index');
+    const $banner = $(this).closest('.soopsori_banner');
+    const swiper = $banner.find('.mySwiper-2').data('swiperInstance');
+
+    $(this).siblings().removeClass('current');
+    $(this).addClass('current');
+
+    if (swiper) {
+      swiper.slideTo(index);
+    }
+  });
+
+  // 바깥 공통 prev / next 버튼
+  $('.sec03 .slider-control .swiper-button-next').on('click', function () {
+    if (activeBestSwiper) activeBestSwiper.slideNext();
+  });
+
+  $('.sec03 .slider-control .swiper-button-prev').on('click', function () {
+    if (activeBestSwiper) activeBestSwiper.slidePrev();
+  });
 });
 
 // swiper
@@ -48,20 +110,24 @@ var swiper = new Swiper(".mySwiper-1", {
 
 
 // sec03 mySwiper-2
-var swiper = new Swiper(".mySwiper-2", {
+const swipers = [];
+
+$(".mySwiper-2").each(function (index, el) {
+  swipers[index] = new Swiper(el, {
     slidesPerView: 1,
     spaceBetween: 30,
-    keyboard: {
-        enabled: true
-    },
+    keyboard: { enabled: true },
+
     pagination: {
-        el: ".sec03 > .swiper-pagination",
-        clickable: true
+      el: ".sec03 .swiper-pagination",
+      clickable: true
     },
+
     navigation: {
-        nextEl: ".sec03 > .swiper-button-next",
-        prevEl: ".sec03 > .swiper-button-prev"
+      nextEl: ".sec03 .swiper-button-next",
+      prevEl: ".sec03 .swiper-button-prev"
     }
+  });
 });
 
 

@@ -478,6 +478,7 @@ main .sec-pd {
 .sec03 {
     padding: 0 40px;
     margin: 0 auto;
+    position: relative;
 }
 
 .sec03 > .title-wrap {
@@ -504,7 +505,6 @@ main .sec-pd {
     font-family: "Jost", sans-serif;
     font-size: 40px;
     font-weight: 500;
-    border: 1px solid rec;
 }
 
 .best_group > .best_tab li.on > a {
@@ -520,7 +520,7 @@ main .sec-pd {
 }
 
 .best_group > .best_con {
-    width: calc(100% -300px)
+    width: calc(100% - 300px)
 }
 
 .best_group > .best_con > ul {
@@ -557,7 +557,6 @@ main .sec-pd {
     
 .mySwiper-2 .swiper-slide > a {
     position: absolute;
-    display: block;
     bottom: 0;
     right: 0;
     text-align: left;
@@ -565,12 +564,10 @@ main .sec-pd {
     width: 240px;
 }
 
-
-
 .mySwiper-2 .swiper-slide > img {
     width: 100% !important;
     max-width: 800px;
-  transform: translateX(-120px);
+    transform: translateX(-120px);
 }
 
 .mySwiper-2 .swiper-slide > a > p:first-child {
@@ -609,6 +606,48 @@ main .sec-pd {
 /* 오른쪽 썸네일 선택 표시 */
 .soopsori_banner_tab .thumb { opacity:.35; cursor:pointer; }
 .soopsori_banner_tab .thumb.current { opacity:1; }
+
+/* 수정 */
+.sec03 .slider-control {
+    position: absolute;
+    left: 50%;
+    bottom: -50px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 30;
+}
+
+.sec03 .slider-control .swiper-button-next,
+.sec03 .slider-control .swiper-button-prev {
+    margin-top: 0;
+    width: 24px;
+    height: 24px;
+    color: #111;
+    top: 3px;
+}
+
+.sec03 .slider-control .swiper-button-prev {
+    left: -60px;
+}
+
+.sec03 .slider-control .swiper-button-next {
+    left: 100px;
+}
+
+.sec03 .slider-control .swiper-pagination {
+    position: static;
+}
+
+.sec03 .slider-control .swiper-pagination-bullet {
+    background: #111;
+    opacity: 0.4;
+}
+
+.sec03 .slider-control .swiper-pagination-bullet-active {
+    opacity: 1;
+}
 
 
 /* sec03 끝 */
