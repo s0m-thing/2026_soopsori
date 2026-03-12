@@ -28,6 +28,10 @@ $(document).ready(function () {
       keyboard: {
         enabled: true
       },
+      navigation: {
+        nextEl: ".sec03 .slider-control > .swiper-button-next",
+        prevEl: ".sec03 .slider-control > .swiper-button-prev"
+      },
       pagination: {
         el: '.sec03 .slider-control .swiper-pagination',
         clickable: true
@@ -91,15 +95,6 @@ $(document).ready(function () {
     if (swiper) {
       swiper.slideTo(index);
     }
-  });
-
-  // 바깥 공통 prev / next 버튼
-  $('.sec03 .slider-control .swiper-button-next').on('click', function () {
-    if (activeBestSwiper) activeBestSwiper.slideNext();
-  });
-
-  $('.sec03 .slider-control .swiper-button-prev').on('click', function () {
-    if (activeBestSwiper) activeBestSwiper.slidePrev();
   });
 
 // sec04 tab
