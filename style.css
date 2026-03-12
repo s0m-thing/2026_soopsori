@@ -749,7 +749,6 @@ main .sec-pd {
 }
 
 
-
 .goods-list-con .goods_tab_con ul .item_con > .item_photo_box > a > img {
     position: absolute;
     top: 50%;
@@ -862,6 +861,24 @@ main .sec-pd {
     width: 530px;
     max-width: 100%;
     position: relative;
+}
+
+.mySwiper-3 .swiper-slide .swiper-slide > a > .img::before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 77.35%;
+    pointer-events: none;
+}
+
+.mySwiper-3 .swiper-slide .swiper-slide > a > .img > img {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-50%);
+    object-fit: contain;
 }
 
 .mySwiper-3 .swiper-slide .swiper-slide > a > dl {
@@ -983,7 +1000,7 @@ main .sec-pd {
     gap: 40px;
 }
 
-.sec07 > .magazine-list > ul > li:first-child {
+.sec07 > .magazine-list > ul > li:nth-child(1) {
     width: 26.6%;
 }
 
@@ -1007,11 +1024,29 @@ main .sec-pd {
     border-radius: 40px;
     position: relative;
     width: 100%;
-    height: 100%;
     overflow: hidden;
 }
 
+.sec07 > .magazine-list > ul > li > a > .img::before {
+    content: "";
+    position: relative;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 120%;
+}
+
+.sec07 > .magazine-list > ul > li:nth-child(1) .img::before {
+    padding-top: 157%;
+}
+
 .sec07 > .magazine-list > ul > li > a > .img > img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
