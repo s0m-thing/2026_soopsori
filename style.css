@@ -295,22 +295,24 @@ main .sec-pd {
     text-align: center;
     cursor: pointer;
     font-size: 20px;
-    width: 304px;
-    height: 144px;
+    width: 254px;
+    height: 59px;
     font-size: 20px;
+    padding: 85px 50px 0 0;
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
+
 }
 
 .mySwiper-1 > .view_more::after {
   content: "";
   display: inline-block;
   vertical-align: middle;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   margin-left: 10px;
-  background: url(images/viewmore-2.svg) no-repeat center;
+  background: url(/images/icon-btn-more-main-view.svg) no-repeat center;
   background-size: contain;
 }
 
@@ -610,7 +612,6 @@ main .sec-pd {
     opacity: 1; 
 }
 
-/* 수정 */
 .sec03 .slider-control {
     position: absolute;
     left: 50%;
@@ -636,6 +637,7 @@ main .sec-pd {
     top: 90%;
     transform: translateY(-50%);
     color: #111 !important;
+    opacity: 1;
 }
 
 .sec03 .slider-control .swiper-pagination-bullet {
@@ -722,7 +724,7 @@ main .sec-pd {
 .goods-list-con .goods_tab_con ul .item_con {
     position: relative;
     border-radius: 40px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* tab메뉴 시작 */
@@ -730,9 +732,9 @@ main .sec-pd {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: 30px;
+    border-radius: 30px 30px 20px 30px;
     text-align: center;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .goods-list-con .goods_tab_con ul .item_con > .item_photo_box.current {
@@ -748,17 +750,17 @@ main .sec-pd {
 
 .goods-list-con .goods_tab_con ul .item_con > .item_photo_box > a > img {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: translate(-50%, -50%);
     transition: opacity .3s;
 }
 
 .goods-list-con .goods_tab_con ul .item_con a > img:last-child {
     opacity: 0;
+    border-radius: 30px;
 }
 
 .goods-list-con .goods_tab_con ul .item_con a:hover > img:first-child {
@@ -767,6 +769,7 @@ main .sec-pd {
 
 .goods-list-con .goods_tab_con ul .item_con a:hover > img:last-child {
     opacity: 1;
+    border-radius: 30px;
 }
 
 .goods-list-con .goods_tab_con ul .item_con > .item_info_con {
@@ -784,7 +787,6 @@ main .sec-pd {
 
 .goods-list-con .goods_tab_con ul .item_con > .item_info_con > .item_tit_box {
     padding: 0;
-    
 }
 
 .goods-list-con .goods_tab_con ul .item_con > .item_info_con > .item_tit_box strong {
@@ -793,17 +795,31 @@ main .sec-pd {
 
 .goods-list-con .goods_tab_con ul .item_con {
   position: relative;
-  border-radius: 40px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .goods-list-con .goods_tab_con ul .item_con .item_tit_box a {
     transition: color .1s;
+    position:
 }
 
 .goods-list-con .goods_tab_con ul .item_con:hover .item_tit_box a {
   color: white;
 }
+
+.goods-list-con .goods_tab_con ul .item_con:hover .item_tit_box a::after {
+    content: "";
+    position: absolute;
+    bottom: -32px;
+    right: 0;
+    width: 94px;
+    height: 94px;
+    z-index: 5;
+    background: url(/images/btn-hover-bg.png) no-repeat 100% 100% / contain;
+    pointer-events: none;
+}
+
+
 /* sec04 끝 */
 
 
@@ -1125,7 +1141,15 @@ main .sec-pd {
     align-items: center;
 }
 
-.mySwiper-5 .swiper-slide img {
+.mySwiper-5 .swiper-slide > a {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 60px;
+    overflow: hidden;
+}
+
+.mySwiper-5 .swiper-slide > a > img {
     display: block;
     width: 100%;
     height: 100%;
