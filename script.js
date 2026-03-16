@@ -13,24 +13,24 @@ $('.top-bar .top-bar__menu-box-1 > ul > li.block').hover(
 
 // sec03 swiper + tab
 $(document).ready(function () {
+  const swipers = {};
 
-  let activeBestSwiper = null;
-
-  // sec03 안의 swiper 각각 1번만 생성
+  // 1. Swiper 초기화
   $('.sec03 .mySwiper-2').each(function () {
-    const swiperEl = this;
+    const $this = $(this);
+    const id = $this.closest('li').attr('id');
 
-    const swiper = new Swiper(swiperEl, {
+    swipers[id] = new Swiper(this, {
       slidesPerView: 1,
       spaceBetween: 30,
       speed: 600,
-      allowTouchMove: true,
-      keyboard: {
-        enabled: true
-      },
+      observer: true,
+      observeParents: true,
+      // 중요: 처음에 모든 스와이퍼를 활성화하되, 
+      // 공유 컨트롤러와의 충돌을 방지하기 위해 나중에 하나만 남깁니다.
       navigation: {
-        nextEl: ".sec03 .slider-control > .swiper-button-next",
-        prevEl: ".sec03 .slider-control > .swiper-button-prev"
+        nextEl: ".sec03 .slider-control .swiper-button-next",
+        prevEl: ".sec03 .slider-control .swiper-button-prev"
       },
       pagination: {
         el: '.sec03 .slider-control .swiper-pagination',
@@ -38,30 +38,52 @@ $(document).ready(function () {
       },
       on: {
         init: function () {
-          const $wrap = $(swiperEl).closest('.soopsori_banner');
-          $wrap.find('.thumb').removeClass('current');
-          $wrap.find('.thumb').eq(this.activeIndex).addClass('current');
-
-          // 처음 current로 보이는 탭의 swiper 저장
-          if ($(swiperEl).closest('.best_con > ul > li').hasClass('current')) {
-            activeBestSwiper = this;
-          }
+          updateThumb(this);
         },
         slideChange: function () {
-          const $wrap = $(swiperEl).closest('.soopsori_banner');
-          $wrap.find('.thumb').removeClass('current');
-          $wrap.find('.thumb').eq(this.activeIndex).addClass('current');
+          updateThumb(this);
         }
       }
     });
-
-    $(swiperEl).data('swiperInstance', swiper);
   });
 
-  // 왼쪽 BEST 탭 클릭
+  function updateThumb(swiperInst) {
+    const $wrap = $(swiperInst.el).closest('.soopsori_banner');
+    $wrap.find('.thumb').removeClass('current');
+    $wrap.find('.thumb').eq(swiperInst.activeIndex).addClass('current');
+  }
+
+  // 2. [필살기] 활성 탭만 컨트롤러 독점시키기
+  function activateSwiper(tabId) {
+    // 모든 스와이퍼의 컨트롤 기능을 잠시 끔 (충돌 방지)
+    Object.keys(swipers).forEach(key => {
+      swipers[key].disable(); 
+      $(swipers[key].pagination.el).hide(); // 일단 페이지네이션 숨김
+    });
+
+    // 선택된 탭의 스와이퍼만 깨우기
+    const activeSwiper = swipers[tabId];
+    if (activeSwiper) {
+      activeSwiper.enable(); // 기능 활성화
+      $(activeSwiper.pagination.el).show(); // 페이지네이션 보이기
+      activeSwiper.update(); 
+      activeSwiper.pagination.render();
+      activeSwiper.pagination.update();
+    }
+  }
+
+  // 초기 실행 (3번 탭 활성화)
+  const initialTab = $('.sec03 .best_tab li.on').data('tab') || 'best-3';
+  $('.sec03 .best_con > ul > li').removeClass('current');
+  $('#' + initialTab).addClass('current');
+  
+  setTimeout(function() {
+    activateSwiper(initialTab);
+  }, 300); // CSS transition 시간을 고려해 약간 넉넉히
+
+  // 3. 탭 클릭 이벤트
   $('.sec03 .best_tab li').on('click', function (e) {
     e.preventDefault();
-
     const tabId = $(this).data('tab');
 
     $('.sec03 .best_tab li').removeClass('on');
@@ -70,37 +92,20 @@ $(document).ready(function () {
     $('.sec03 .best_con > ul > li').removeClass('current');
     $('#' + tabId).addClass('current');
 
-    activeBestSwiper = $('#' + tabId).find('.mySwiper-2').data('swiperInstance');
-
-    if (activeBestSwiper) {
-      activeBestSwiper.update();
-
-      // pagination 다시 갱신
-      if (activeBestSwiper.pagination) {
-        activeBestSwiper.pagination.render();
-        activeBestSwiper.pagination.update();
-      }
-    }
+    activateSwiper(tabId);
   });
 
-  // 오른쪽 썸네일 클릭
+  // 썸네일 클릭 (기존과 동일)
   $('.sec03 .soopsori_banner_tab .thumb').on('click', function () {
     const index = $(this).data('index');
-    const $banner = $(this).closest('.soopsori_banner');
-    const swiper = $banner.find('.mySwiper-2').data('swiperInstance');
-
-    $(this).siblings().removeClass('current');
-    $(this).addClass('current');
-
-    if (swiper) {
-      swiper.slideTo(index);
-    }
+    const tabId = $(this).closest('li[id]').attr('id');
+    if (swipers[tabId]) swipers[tabId].slideTo(index);
   });
+});
 
-// sec04 tab
+  // 5. sec04 탭 (ONLY FOR YOU)
   $('.sec04 .goods_tab_tit .tab_link').on('click', function (e) {
     e.preventDefault();
-
     const tabId = $(this).data('tab');
 
     $('.sec04 .goods_tab_tit .tab_link').removeClass('current');
