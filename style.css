@@ -138,7 +138,6 @@ header {
     width: 100%;
     height: 100%;
     position: relative;
-
 }
 
 /* 메뉴1 시작 */
@@ -223,7 +222,6 @@ header > .top-bar_bg {
 
 header.active > .top-bar_bg {
     display: block;
-    
 }
 
 /* 2차메뉴 끝 */
@@ -235,12 +233,11 @@ header.active > .top-bar_bg {
     align-items: center;
     gap: 32px;
 }
-
 /* 메뉴2 끝 */
 /* --------------------- 헤더 끝 --------------------- */
 
 /* --------------------- 메인 시작 --------------------- */
-
+/* 메인 섹션 */
 main > .contents {
     min-height: 400px;
     width: 100%;
@@ -283,7 +280,6 @@ main .sec-pd {
     padding: 0;
 }
 
-/* 수정 */
 .mySwiper-1 > .view_more {
     position: absolute;
     font-family: "Jost";
@@ -316,7 +312,7 @@ main .sec-pd {
   background-size: contain;
 }
 
-/* swiper커스텀 시작 */
+/* mySwiper-1 커스텀 시작 */
 .sec01 > .slider-control {
   position:absolute;
   left: 0;
@@ -370,7 +366,7 @@ main .sec-pd {
 .sec01 > .slider-control > .swiper-pagination > .swiper-pagination-total {
     opacity: 0.5;
 }
-
+/* mySwiper-1 커스텀 끝 */
 /* sec01 끝 */
 
 
@@ -409,7 +405,6 @@ main .sec-pd {
     flex-direction: column;
 }
 
-/* 수정 */
 .cat-wrap > .cat .thumb::before {
     content: "";
     position: absolute;
@@ -444,7 +439,6 @@ main .sec-pd {
     display: block;
     object-fit: cover;
 }
-
 
 .cat-wrap a .label {
     font-size: 16px;
@@ -541,7 +535,7 @@ main .sec-pd {
     margin-bottom: 22px;
 }
 
-
+/* mySwiper-2 커스텀 시작 */
 .mySwiper-2 {
     width: 1425px;
 }
@@ -648,6 +642,7 @@ main .sec-pd {
 .sec03 .slider-control .swiper-pagination-bullet-active {
     opacity: 1;
 }
+/* mySwiper-2 커스텀 끝 */
 /* sec03 끝 */
 
 
@@ -727,7 +722,6 @@ main .sec-pd {
     overflow: visible;
 }
 
-/* tab메뉴 시작 */
 .goods-list-con .goods_tab_con ul .item_con > .item_photo_box {
     display: flex;
     flex-direction: column;
@@ -740,13 +734,13 @@ main .sec-pd {
 .goods-list-con .goods_tab_con ul .item_con > .item_photo_box.current {
     display: flex;
 }
+/* 탭메뉴 끝 */
 
 .goods-list-con .goods_tab_con ul .item_con > .item_photo_box > a {
     position: relative;
     display: block;
     padding-bottom: 116.8%;
 }
-
 
 .goods-list-con .goods_tab_con ul .item_con > .item_photo_box > a > img {
     position: absolute;
@@ -818,8 +812,6 @@ main .sec-pd {
     background: url(/images/btn-hover-bg.png) no-repeat 100% 100% / contain;
     pointer-events: none;
 }
-
-
 /* sec04 끝 */
 
 
@@ -846,6 +838,7 @@ main .sec-pd {
     align-items: center;
 }
 
+/* mySwiper-3 커스텀 시작 */
 .mySwiper-3 .swiper-slide > div {
     flex: 1;
     position: relative;
@@ -925,8 +918,6 @@ main .sec-pd {
     text-align: center;
 }
 
-
-/* 스와이퍼커스텀 */
 .sec05 > .slider-control {
     display: flex;
     position: relative;
@@ -959,6 +950,7 @@ main .sec-pd {
     width: 16px;
     color: #092729;
 }
+/* mySwiper-3 커스텀 끝 */
 /* sec05 끝 */
 
 
@@ -1132,6 +1124,7 @@ main .sec-pd {
     position: relative;
 }
 
+/* mySwiper-5 커스텀 시작 */
 .mySwiper-5 {
     width: 100%;
     height: 100%;
@@ -1160,7 +1153,6 @@ main .sec-pd {
     object-fit: cover;
 }
 
-/* 스와이퍼 커스텀 */
 .sec08 > .slider-control {
     position: absolute;
     height: 100%;
@@ -1198,6 +1190,7 @@ main .sec-pd {
 .sec08 .swiper-button-next:hover {
     opacity: 1;
 }
+/* mySwiper-5 커스텀 끝 */
 /* sec08 끝 */
 
 
@@ -1231,6 +1224,7 @@ main .sec-pd {
   position: relative;
 }
 
+/* marquee 시작 */
 .marquee-frame {
   width: 1041px;
   height: 640px;
@@ -1258,6 +1252,7 @@ main .sec-pd {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+/* marquee 끝 */
 /* sec09 끝 */
 
 
