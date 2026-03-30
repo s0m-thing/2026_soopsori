@@ -27,6 +27,7 @@ $(document).ready(function () {
       spaceBetween: 30,
       speed: 600,
       allowTouchMove: true,
+      watchOverflow: false,
       keyboard: {
         enabled: true
       },
